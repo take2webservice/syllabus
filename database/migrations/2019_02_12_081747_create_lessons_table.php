@@ -14,24 +14,28 @@ class CreateLessonsTable extends Migration
     public function up()
     {
         Schema::create('lessons', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('school_id')->unsigned();
-            $table->foreign('school_id')->references('id')->on('schools')->nullable();
-            $table->integer('department_id')->unsigned();
-            $table->foreign('department_id')->references('id')->on('departments')->nullable();
+            $table->string('lesson_code');
+            $table->integer('school_id')->nullable();
+            $table->string('school_name');
+            $table->integer('department_id')->nullable();
+            $table->string('department_name');
             $table->string('name');
-            $table->tinyInteger('lesson_type');
-            $table->tinyInteger('opening_year');
+            $table->string('teachers');
+            $table->integer('opening_year');
             $table->integer('target_year');
             $table->integer('semester');
-            $table->tinyInteger('unit');
-            $table->tinyInteger('day_of_the_week');
-            $table->tinyInteger('period');
-            $table->text('outline');
-            $table->text('goal');
-            $table->text('book');
-            $table->text('test');
+            $table->integer('is_general')->nullable();
+            $table->integer('is_expert')->nullable();
+            $table->integer('is_language')->nullable();
+            $table->integer('unit');
+            $table->integer('day_of_the_week');
+            $table->integer('period');
+            $table->string('outline');
+            $table->string('goal');
+            $table->string('book');
+            $table->string('test');
             $table->timestamps();
+            $table->unique(['lesson_code', 'school_id', 'department_id']);
         });
     }
 

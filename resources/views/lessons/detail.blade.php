@@ -7,16 +7,22 @@
   <h2>概要</h2>
   <div class="container">
     <div class="row border-bottom mb-4">
-      <div class="col-sm-6">
+      <div class="col-sm-4">
+        <dl class="row">
+          <dt class="col-sm-4">コード</dt>
+          <dd class="col-sm-8">{{$lesson->lesson_code}}</dd>
+        </dl>
+      </div>
+      <div class="col-sm-4">
         <dl class="row">
           <dt class="col-sm-4">科目名</dt>
           <dd class="col-sm-8">{{$lesson->name}}</dd>
         </dl>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <dl class="row">
           <dt class="col-sm-6">担当教員</dt>
-          <dd class="col-sm-6">{{$lesson->getTeachers()}}</dd>
+          <dd class="col-sm-6">{{$lesson->teachers}}</dd>
         </dl>
       </div>
     </div>

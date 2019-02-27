@@ -22,6 +22,11 @@ if($method == "PUT") {
     @endif
 
     <div class="form-group">
+      <label for="lesson_code">講義名</label>
+      <input type="text" class="form-control" id="lesson_code" name="lesson_code" placeholder="S0001" value="{{ $lesson->lesson_code }}">
+    </div>
+
+    <div class="form-group">
       <label for="school">学部名</label>
       {{Form::select('school_id', array_pluck($schools, 'name', 'id'), $lesson->school_id, ['class' => 'form-control'])}}
     </div>
@@ -37,26 +42,9 @@ if($method == "PUT") {
     </div>
 
     <div class="form-group">
-      <label for="name">担当</label>
-      <div class="row" style="margin: 0;">
-        {{Form::select(null, array_pluck($teachers, 'name', 'id'), null,['class' => 'form-control col-sm-10', 'id' => 'teacher_select'])}}
-        <button type='button' class="btn btn-primary col-sm-2" id="add_teacher_btn">追加</button>
-      </div>
+      <label for="teachers">担当</label>
+      <input type="text" class="form-control" id="teachers" name="teachers" placeholder="担当" value="{{ $lesson->teachers }}">
     </div>
-
-    <ul id='selected_teachers' class="list-group">
-      @if (count($lesson->teachers) > 0)
-      @foreach($lesson->teachers as $teacher)
-      <li class='list-group-item' style='padding: 1em;'>
-        <div class="row">
-          <div class='col-sm-3' style='line-height: 36px;'>{{$teacher->name}}</div>
-          <button type='button' class="btn btn-danger col-sm-2 remove_teacher_btn">削除</button>
-          <input type="hidden" value='{{$teacher->id}}' name="teacher_id[]" class="teacher_id">
-        </div>
-      </li>
-      @endforeach
-      @endif
-    </ul>
 
     <div class="form-group">
       <label for="name">対象年度</label>
@@ -69,13 +57,18 @@ if($method == "PUT") {
     </div>
     
     <div class="form-group">
-      <label>講義タイプ</label>
-      <div>
-        @foreach(App\Lesson::LESSON_TYPES as $type)
-          {{Form::label($type['id'], $type['label'] )}}
-          {{Form::radio('lesson_type', $type['value'], $lesson->lesson_type === $type['value'], array('name' => 'lesson_type', 'id' => $type['id']))}}
-        @endforeach
-      </div>
+      <label>一般教養</label>
+      {{Form::checkbox('is_general', 1, $lesson->is_general, ['class' => 'field'])}}
+    </div>
+
+    <div class="form-group">
+      <label>語学</label>
+      {{Form::checkbox('is_general', 1, $lesson->is_language, ['class' => 'field'])}}
+    </div>
+    
+    <div class="form-group">
+      <label>専門</label>
+      {{Form::checkbox('is_general', 1, $lesson->is_expert, ['class' => 'field'])}}
     </div>
    
     <div class="form-group">

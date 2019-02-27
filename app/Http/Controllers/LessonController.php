@@ -19,7 +19,7 @@ class LessonController extends Controller
     public function index(Request $request)
     {
         $freeword = $request->freeword;
-        $lessons = Lesson::orderBy('id', 'desc');
+        $lessons = Lesson::orderBy('lesson_code', 'desc');
         if (!empty($freeword)) {
             $lessons = $lessons->where('name', 'LIKE', "%$freeword%");
         }
@@ -77,35 +77,24 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'name' => 'required|max:191',
-        //     'school_id' => 'nullable|unique:schools',
-        //     'department_id' => 'nullable|unique:departments',
-        //     'target_year' => 'required|between:2019,2100',
-        //     'semester' => 'required|between:2019,2100',
-        //     '' => '',
-        // ]);
-        // $v->sometimes('is_general', 'required', function ($input) {
-        //     return $input->is_expert == 0 && $input->is_language ;
-        // });
-        // if ($validator->fails()) {
-        //     return redirect('lesson/create')
-        //                 ->withErrors($validator)
-        //                 ->withInput();
-        // }
         $lesson = new Lesson;
         $lesson = $this::saveLesson($lesson, $request);
-        $this::saveLessonTesacher($lesson, $request);
         return redirect('lessons');
     }
     
     private function saveLesson(\App\Lesson $lesson, Request $request) {
+        $lesson->lesson_code = $request->lesson_code;
         $lesson->name = $request->name;
         $lesson->school_id = $request->school_id;
+        $lesson->school_name = School::find($request->school_id)->name;
         $lesson->department_id = $request->department_id;
+        $lesson->department_name = Department::find($request->department_id)->name;
         $lesson->target_year = $request->target_year;
+        $lesson->teachers = $request->teachers;
         $lesson->semester = $request->semester;
-        $lesson->lesson_type = $request->lesson_type;
+        $lesson->is_general = $request->is_general;
+        $lesson->is_expert = $request->is_expert;
+        $lesson->is_language = $request->is_language;
         $lesson->opening_year = $request->opening_year;
         $lesson->unit = $request->unit;
         $lesson->day_of_the_week = $request->day_of_the_week;

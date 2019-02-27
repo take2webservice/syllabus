@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
 {
+    // プライマリキー設定
+    protected $primaryKey = 'lesson_code';
+    // increment無効化
+    public $incrementing = false;
     //
     const SEMESTERS = [1 => '前期', 2 => '後期'];
     
@@ -56,10 +60,5 @@ class Lesson extends Model
     
     public function getSemster() {
         return Lesson::SEMESTERS[$this->semester];
-    }
-    
-    public function teachers()
-    {
-        return $this->belongsToMany('App\Teacher', 'lesson_teachers', 'lesson_id', 'teacher_id');
     }
 }

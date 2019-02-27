@@ -18,12 +18,12 @@
   <tbody>
     @foreach ($lessons as $lesson)
     <tr>
-      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->id])}}">{{$lesson->school->name}}</a></td>
-      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->id])}}">{{$lesson->name}}</a></td>
-      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->id])}}">{{$lesson->getLessonType()}}</a></td>
-      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->id])}}">{{$lesson->getTeachers()}}</a></td>
-      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->id])}}">{{$lesson->getSemster()}}</a></td>
-      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->id])}}">{{$lesson->getLessonSchedule()}}</a></td>
+      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->lesson_code])}}">{{$lesson->school->name}}</a></td>
+      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->lesson_code])}}">{{$lesson->name}}</a></td>
+      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->lesson_code])}}">{{$lesson->getLessonType()}}</a></td>
+      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->lesson_code])}}">{{$lesson->teachers}}</a></td>
+      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->lesson_code])}}">{{$lesson->getSemster()}}</a></td>
+      <td><a class="text-secondary" href="{{route('lessons.show',  ['lesson' => $lesson->lesson_code])}}">{{$lesson->getLessonSchedule()}}</a></td>
     </tr>
     @endforeach
   </tbody>
