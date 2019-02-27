@@ -1,0 +1,9 @@
+[08-Feb-2019 06:13:30 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/ubuntu/workspace/app/Department.php on line 21
+[08-Feb-2019 06:22:12 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/ubuntu/workspace/app/Department.php on line 16
+[08-Feb-2019 06:22:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/ubuntu/workspace/app/Department.php on line 16
+[08-Feb-2019 06:22:32 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/ubuntu/workspace/app/Department.php on line 16
+[08-Feb-2019 06:22:55 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/ubuntu/workspace/app/Department.php on line 16
+[08-Feb-2019 06:23:03 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 98582528 bytes) in /home/ubuntu/workspace/app/Department.php on line 16
+[08-Feb-2019 06:23:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 98582528 bytes) in /home/ubuntu/workspace/app/Department.php on line 16
+[08-Feb-2019 06:23:18 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 98582528 bytes) in /home/ubuntu/workspace/app/Department.php on line 16
+[08-Feb-2019 06:23:58 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/ubuntu/workspace/app/Department.php on line 16
